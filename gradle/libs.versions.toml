@@ -1,0 +1,16 @@
+[versions]
+kotlin = "2.0.21"
+junit = "4.13.2"
+kotlinpoet = "1.14.2"
+ksp = "2.0.21-1.0.28"
+
+[libraries]
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinpoet" }
+kotlinpoet-ksp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "kotlinpoet" }
+symbol-processing-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ksp = {id = "com.google.devtools.ksp", version.ref = "ksp"}
+
