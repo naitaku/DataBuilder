@@ -1,0 +1,25 @@
+name: Publish to Maven Central
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v4
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'jetbrains'
+        java-version: 21
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+    - name: Publish
+      run: ./gradlew publishToMavenCentralPortal
+      env:
+        ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
+        ORG_GRADLE_PROJECT_mavenCentralToken: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+        ORG_GRADLE_PROJECT_signingPrivateKey: ${{ secrets.SIGNING_PRIVATE_KEY }}
