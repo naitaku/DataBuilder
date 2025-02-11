@@ -1,6 +1,7 @@
 plugins {
     id("java-library")
     alias(libs.plugins.kotlin.jvm)
+    id("MyMavenCentralPublish")
 }
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
