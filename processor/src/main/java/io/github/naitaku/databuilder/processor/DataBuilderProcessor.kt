@@ -22,7 +22,7 @@ class DataBuilderProcessor(
                     null
                 } else {
                     it
-                }
+            }
             }.filterNotNull()
             .toList()
 
@@ -42,8 +42,10 @@ class DataBuilderProcessor(
             val packageName = classDeclaration.packageName.asString()
             val className = classDeclaration.simpleName.asString()
             val builderName = "${className}Builder"
+            val docString = classDeclaration.docString
 
             val typeSpec = TypeSpec.classBuilder(builderName)
+                .addKdoc(docString?.trim() ?: "")
                 .addProperty(
                     PropertySpec.builder("instance", classDeclaration.toClassName())
                         .mutable(true)

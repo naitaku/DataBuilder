@@ -30,5 +30,17 @@ class ExampleUnitTest {
 
 }
 
+/**
+ * Test Data Class
+ */
 @DataBuilder
-data class TestData(val name:String = "Naito", val age:Int = 18)
+data class TestData(
+    /**
+     * name
+     */
+    val name:String = "Naito",
+    /**
+     * age
+     */
+    val age:Int = 18
+)

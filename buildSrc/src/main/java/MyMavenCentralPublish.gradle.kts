@@ -46,7 +46,7 @@ signing {
     val signingPrivateKey: String? by project
     val signingPassword: String? by project
     useInMemoryPgpKeys(signingPrivateKey, signingPassword)
-    sign(publishing.publications["Library"])
+    sign(publishing.publications)
 }
 mavenCentral {
     val mavenCentralToken: String? by project
